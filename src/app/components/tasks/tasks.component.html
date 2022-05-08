@@ -1,0 +1,40 @@
+<div class="container-fluid" *ngIf="taskFrom">
+  <form [formGroup]='taskFrom'>
+    <h2>Hello {{name}}, Your Tasks is {{getPendingTasks()}}</h2>
+    <input formControlName="addTask" [class.is-invalid]="taskFrom.controls['addTask'].errors && taskFrom.controls['addTask'].dirty" #inputTitle (keyup.enter)="addTask(inputTitle.value);inputTitle.value= ''" type="text" class="form-control w-50">
+    <p *ngIf="taskFrom.controls['addTask'].errors && taskFrom.controls['addTask'].dirty" class="d-block text-danger">Please Add Valid Task Name, Min Length 4, Max Length 15</p>
+
+    <button class="btn btn-primary" [disabled]="taskFrom.invalid" (click)="addTask(inputTitle.value);inputTitle.value= '' ">Add Task</button>
+
+    <table class="table table-dark">
+        <thead>
+          <tr>
+              <td>#</td>
+              <td>Title</td>
+              <td>Status</td>
+              <td>Action</td>
+              <td>Created Date</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let items of tasks; let Count = index" class="table-active">
+            <td>{{Count+1}}</td>
+            <td>ID: {{items.ID}} --
+              <a routerLink="/details/{{items.ID}}" routerLinkActive="router-link-active">
+                {{items.Title}}
+              </a>
+              </td>
+            <td><input type="checkbox" (change)="updateTask(items)" [checked]="items.IsDone" ></td>
+            <td><button class="btn btn-danger" (click)="deleteTask(Count)" >Delete</button></td>
+            <td>{{items.CreatedDate | date}}</td>
+          </tr>
+          <tr *ngIf="tasks.length == 0 && !isPageLoaded">
+              <td colspan="5" class="text-center">No Tasks Found</td>
+          </tr>
+          <tr *ngIf="isPageLoaded">
+            <td colspan="5" class="text-center">Loading ...</td>
+        </tr>
+        </tbody>
+      </table>
+  </form>
+</div>

@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    <h2>Good Morning {{name}}, Your Students Number is {{getStudentNumber()}} </h2>
+    <hr>
+    <label for="firstName">First Name</label>
+    <input #inputFirstName name="firstName" type="text" class="form-control w-50">
+    <br>
+    <label for="lastName">Last Name</label>
+    <input #inputLastName name="lastName" type="text" class="form-control w-50">
+    <br>
+    <label for="Mobile">Mobile</label>
+    <input #inputMobile name="Mobile" type="text" class="form-control w-50">
+    <br>
+    <label for="Email">Email</label>
+    <input #inputEmail name="Email" type="email" class="form-control w-50">
+    <br>
+    <label for="National">National ID</label>
+    <input #inputNationalID name="National" type="number" class="form-control w-50">
+    <br>
+    <label for="Age">Age</label>
+    <input #inputAge name="Age" type="number" class="form-control w-50">
+    <br>
+    <button class="btn btn-primary" (click)="addStudent(inputFirstName.value, inputLastName.value, inputMobile.value, inputEmail.value, inputNationalID.value, inputAge.value)">Add Student Data</button>
+    <table class="table table-dark mt-2">
+        <thead>
+          <tr>
+              <td>#</td>
+              <td>ID</td>
+              <td>Name</td>
+              <td>Mobile</td>
+              <td>Email</td>
+              <td>National ID</td>
+              <td>Age</td>
+              <td>Delete</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let items of student; let counter = index" class="table-active">
+            <td>{{counter+1}}</td>
+            <td>{{items.ID}}</td>
+            <td>{{items.Name}}</td>
+            <td>{{items.Mobile}}</td>
+            <td>{{items.Email}}</td>
+            <td>{{items.NationalID}}</td>
+            <td>{{items.Age}}</td>
+            <td><button type="button" class="btn btn-danger" (click)="deleteStudent(counter)">Delete</button></td>
+          </tr>
+          <tr>
+              <td *ngIf="student.length == 0" colspan="8" class="text-center">No Tasks Found</td>
+          </tr>
+          <tr>
+              <td *ngIf="isPageLoaded" class="text-center" colspan="8">
+                <div class="spinner-border text-warning" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+              </td>
+        </tr>
+        </tbody>
+      </table>
+</div>

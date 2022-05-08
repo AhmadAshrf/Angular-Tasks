@@ -1,0 +1,19 @@
+<div class="container" *ngIf="loginForm">
+    <form [formGroup]='loginForm'>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" [class.is-invalid]="loginForm.controls['Email'].errors && loginForm.controls['Email'].dirty" formControlName="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <p *ngIf="loginForm.controls['Email'].errors && loginForm.controls['Email'].dirty" class="d-block">Invalid Email Address!</p>
+
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" [class.is-invalid]="loginForm.controls['Password'].errors && loginForm.controls['Password'].dirty" formControlName="Password" class="form-control" id="exampleInputPassword1">
+          <p *ngIf="loginForm.controls['Password'].errors && loginForm.controls['Password'].dirty" class="d-block">Invalid Password</p>
+          <!-- <p *ngIf="loginForm.controls['Password'].errors?.required" class="d-block">Requried Password</p> -->
+
+        </div>
+        <button type="submit" (click)="login()" [disabled]="loginForm.invalid" class="btn btn-primary">Submit</button>
+      </form>
+</div>

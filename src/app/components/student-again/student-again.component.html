@@ -1,0 +1,6 @@
+<p>student-again works!</p>
+<div>
+    student rate is {{studentRate}}
+</div>
+<app-rate [rate]="studentRate" (starsChanged)="onStudentRateChanged($event)"></app-rate>
+
