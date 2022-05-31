@@ -20,7 +20,7 @@ export class TasksComponent implements OnInit {
   ngOnInit(): void {
     //Reactive Forms
     this.taskFrom = this._formBuilder.group({
-      addTask:['',[Validators.required, Validators.minLength(4), Validators.maxLength(15)]]
+      addTask:['',[Validators.required, Validators.minLength(4), Validators.maxLength(40)]]
     })
     
     this.taskService.getAll().subscribe(
@@ -36,6 +36,12 @@ export class TasksComponent implements OnInit {
     return this.tasks.filter(tasks => !tasks.IsDone).length
   }
 
+
+  // adddTask(name:string){
+  //   let task = new Task()
+  //   task.Title = name    
+  //   this.taskService.create()
+  // }
   addTask(title: string) {
     let task = new Task()
     task.Title = title
@@ -46,8 +52,7 @@ export class TasksComponent implements OnInit {
       },
       (error: any) => { console.log(error) }
     )
-    task.title = title
-    this.tasks.push(task)
+    // this.tasks.push(task)
   }
 
   updateTask(task: Task) {
