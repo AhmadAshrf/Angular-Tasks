@@ -1,18 +1,11 @@
-<<<<<<< HEAD
 <div class="container-fluid" *ngIf="taskFrom">
   <form [formGroup]='taskFrom'>
     <h2>Hello {{name}}, Your Tasks is {{getPendingTasks()}}</h2>
-    <input formControlName="addTask" [class.is-invalid]="taskFrom.controls['addTask'].errors && taskFrom.controls['addTask'].dirty" #inputTitle (keyup.enter)="addTask(inputTitle.value);inputTitle.value= ''" type="text" class="form-control w-50">
+    <input formControlName="addTask" [class.is-valid]="taskFrom.valid"   [class.is-invalid]="taskFrom.controls['addTask'].errors && taskFrom.controls['addTask'].dirty" #inputTitle (keyup.enter)="addTask(inputTitle.value);inputTitle.value= ''" type="text" class="form-control w-50">
     <p *ngIf="taskFrom.controls['addTask'].errors && taskFrom.controls['addTask'].dirty" class="d-block text-danger">Please Add Valid Task Name, Min Length 4, Max Length 15</p>
 
-    <button class="btn btn-primary" [disabled]="taskFrom.invalid" (click)="addTask(inputTitle.value);inputTitle.value= '' ">Add Task</button>
-=======
+    <button class="btn btn-primary mb-3" [disabled]="taskFrom.invalid" (click)="addTask(inputTitle.value);inputTitle.value= '' ">Add Task</button>
 <div class="container-fluid">
-    <h2>Hello {{name}}, Your Tasks is {{getPendingTasks()}}</h2>
-    <input #inputTitle (keyup.enter)="addTask(inputTitle.value);inputTitle.value= ''" type="text" class="form-control w-50">
-    <button class="btn btn-primary" (click)="addTask(inputTitle.value);inputTitle.value= '' ">Add</button>
->>>>>>> 3c4fa85e6edcaf114d4136517211051241069621
-
     <table class="table table-dark">
         <thead>
           <tr>
@@ -20,16 +13,12 @@
               <td>Title</td>
               <td>Status</td>
               <td>Action</td>
-<<<<<<< HEAD
               <td>Created Date</td>
-=======
->>>>>>> 3c4fa85e6edcaf114d4136517211051241069621
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let items of tasks; let Count = index" class="table-active">
             <td>{{Count+1}}</td>
-<<<<<<< HEAD
             <td>ID: {{items.ID}} --
               <a routerLink="/details/{{items.ID}}" routerLinkActive="router-link-active">
                 {{items.Title}}
@@ -47,16 +36,4 @@
         </tr>
         </tbody>
       </table>
-  </form>
-=======
-            <td>{{items.title}}</td>
-            <td><input type="checkbox" (change)="updateTask(items)" [checked]="items.IsDone" ></td>
-            <td><button class="btn btn-danger" (click)="deleteTask(Count)" >Delete</button></td>
-          </tr>
-          <tr *ngIf="tasks.length == 0">
-              <td colspan="4" class="text-center">No Tasks Found</td>
-          </tr>
-        </tbody>
-      </table>
->>>>>>> 3c4fa85e6edcaf114d4136517211051241069621
 </div>

@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 import { Router } from '@angular/router';
-=======
->>>>>>> 3c4fa85e6edcaf114d4136517211051241069621
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,20 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-<<<<<<< HEAD
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-  goToTasksComponent(){
+  goToTasksComponent() {
     this.router.navigate(['/tasks'])
   }
-=======
-  constructor() { }
-
-  ngOnInit(): void {
-  }
->>>>>>> 3c4fa85e6edcaf114d4136517211051241069621
-
 }

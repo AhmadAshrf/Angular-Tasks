@@ -5,8 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { HomeComponent } from './components/home/home.component';
-<<<<<<< HEAD
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
@@ -19,14 +18,11 @@ import { RateComponent } from './components/rate/rate.component';
 import { StudentAgainComponent } from './components/student-again/student-again.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { LogoutComponent } from './components/logout/logout.component';
-=======
->>>>>>> 3c4fa85e6edcaf114d4136517211051241069621
 
 @NgModule({
   declarations: [
     AppComponent,
     TasksComponent,
-<<<<<<< HEAD
     HomeComponent,
     HeaderComponent,
     ContactComponent,
@@ -39,9 +35,6 @@ import { LogoutComponent } from './components/logout/logout.component';
     StudentAgainComponent,
     EmployeeComponent,
     LogoutComponent
-=======
-    HomeComponent
->>>>>>> 3c4fa85e6edcaf114d4136517211051241069621
   ],
   imports: [
     BrowserModule,
