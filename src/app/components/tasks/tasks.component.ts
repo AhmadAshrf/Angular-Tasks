@@ -35,13 +35,7 @@ export class TasksComponent implements OnInit {
   getPendingTasks(): number {
     return this.tasks.filter(tasks => !tasks.IsDone).length
   }
-
-
-  // adddTask(name:string){
-  //   let task = new Task()
-  //   task.Title = name    
-  //   this.taskService.create()
-  // }
+  
   addTask(title: string) {
     let task = new Task()
     task.Title = title
@@ -52,7 +46,6 @@ export class TasksComponent implements OnInit {
       },
       (error: any) => { console.log(error) }
     )
-    // this.tasks.push(task)
   }
 
   updateTask(task: Task) {
