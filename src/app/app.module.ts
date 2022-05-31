@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { HomeComponent } from './components/home/home.component';
 import {HttpClientModule} from '@angular/common/http';
-import { StudentComponent } from './Components/student/student.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
@@ -25,7 +24,6 @@ import { LogoutComponent } from './components/logout/logout.component';
     AppComponent,
     TasksComponent,
     HomeComponent,
-    StudentComponent,
     HeaderComponent,
     ContactComponent,
     AboutComponent,

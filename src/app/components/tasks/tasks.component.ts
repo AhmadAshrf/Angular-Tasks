@@ -1,6 +1,5 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TaskService } from './../../services/task.service';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../../models/tasks'
 
@@ -23,6 +22,7 @@ export class TasksComponent implements OnInit {
     this.taskFrom = this._formBuilder.group({
       addTask:['',[Validators.required, Validators.minLength(4), Validators.maxLength(15)]]
     })
+    
     this.taskService.getAll().subscribe(
       (response: any) => {
         this.tasks = response.Data
