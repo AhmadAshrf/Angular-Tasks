@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TaskService } from './../../services/task.service';
+=======
+>>>>>>> 3c4fa85e6edcaf114d4136517211051241069621
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../../models/tasks'
 
@@ -11,6 +14,7 @@ import { Task } from '../../models/tasks'
 export class TasksComponent implements OnInit {
   name: string = "Ahmed Ashraf"
   tasks: Task[] = []
+<<<<<<< HEAD
   taskFrom?:FormGroup //Reactive Forms
   isPageLoaded: boolean = true
 
@@ -30,10 +34,21 @@ export class TasksComponent implements OnInit {
       },
       (error: any) => { console.log(error) }
     )
+=======
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  getPendingTasks(): number {
+    return this.tasks.filter(tasks => !tasks.IsDone).length
+>>>>>>> 3c4fa85e6edcaf114d4136517211051241069621
   }
 
   addTask(title: string) {
     let task = new Task()
+<<<<<<< HEAD
     task.Title = title
     this.taskService.create(task).subscribe(
       (response: any) => {
@@ -42,10 +57,15 @@ export class TasksComponent implements OnInit {
       },
       (error: any) => { console.log(error) }
     )
+=======
+    task.title = title
+    this.tasks.push(task)
+>>>>>>> 3c4fa85e6edcaf114d4136517211051241069621
   }
 
   updateTask(task: Task) {
     task.IsDone = !task.IsDone
+<<<<<<< HEAD
     this.taskService.update(task).subscribe(
       (response: any) => { },
       (error: any) => { task.IsDone = !task.IsDone }
@@ -61,5 +81,11 @@ export class TasksComponent implements OnInit {
   }
   getPendingTasks(): number {
     return this.tasks.filter(tasks => !tasks.IsDone).length
+=======
+  }
+
+  deleteTask(index: number) {
+    this.tasks.splice(index, 1)
+>>>>>>> 3c4fa85e6edcaf114d4136517211051241069621
   }
 }
